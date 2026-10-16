@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airfoil Drag Simulation | Aidan Marley</title>
+  <meta name="description" content="Siemens NX CFD model of airflow over an airfoil in a wind tunnel, analyzing drag force, velocity, pressure and streamlines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Aidan Marley</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#background">Education &amp; Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-btn primary" href="../assets/Aidan_Marley_Resume.pdf">Resume</a>
+      <a class="nav-btn" href="mailto:amarley@u.rochester.edu">Email</a>
+      <a class="nav-btn" href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+
+  <header class="proj-head">
+    <ul class="tags"><li>Aerodynamics</li><li>Siemens NX</li><li>CFD</li><li>Wind tunnel testing</li></ul>
+    <h1>Airfoil Drag Simulation</h1>
+    <p class="one-line">Developed a CFD model in Siemens NX to simulate airflow over an airfoil in a wind tunnel, analyzing drag force, velocity, pressure and streamlines to evaluate aerodynamic performance, and computed a total drag force of 0.703 N at an <span class="nowrap">18&nbsp;m/s</span> inlet velocity.</p>
+  </header>
+
+  <figure class="hero-fig" style="aspect-ratio:auto">
+    <img src="../assets/airfoil/velocity-with-key.jpg" style="width:100%;height:auto;display:block" alt="Siemens NX CFD velocity contour around a cambered airfoil with color-scale key, showing flow accelerating over the upper surface">
+    <figcaption>Velocity contour at an <span class="nowrap">18&nbsp;m/s</span> inlet velocity: flow stagnates at the leading edge and accelerates to about <span class="nowrap">23.4&nbsp;m/s</span> over the upper surface. Scale in mm/s.</figcaption>
+  </figure>
+
+  <dl class="glance">
+    <div><dt>Context</dt><dd>ME 225: Introduction to Fluid Dynamics, Fall 2025, University of Rochester</dd></div>
+    <div><dt>My role</dt><dd>Independent project; Owner</dd></div>
+    <div><dt>Tools</dt><dd>Siemens NX (CFD)</dd></div>
+    <div><dt>Result</dt><dd>Total drag force of 703 mN (0.703 N) at an <span class="nowrap">18&nbsp;m/s</span> inlet velocity; converged steady-state solution</dd></div>
+  </dl>
+
+  <div class="content">
+    <h2>Project Objective</h2>
+    <ul>
+      <li>Evaluate the aerodynamic performance of an airfoil in a wind tunnel using CFD.</li>
+    </ul>
+
+    <h2>Methods</h2>
+    <ul>
+      <li>Developed a CFD model in Siemens NX to simulate airflow over the airfoil in a wind tunnel.</li>
+      <li><b>Geometry:</b> modeled the airfoil and a wind-tunnel enclosure around it, with the enclosure split in two for viewing results.</li>
+      <li><b>Mesh:</b> 15&nbsp;mm elements in the enclosure, refined to 5&nbsp;mm on the airfoil to resolve the flow near its surface.</li>
+      <li><b>Boundary conditions:</b> <span class="nowrap">18&nbsp;m/s</span> velocity inlet and an outlet at the opposite end of the tunnel, with a lift/drag report on the airfoil surface.</li>
+      <li><b>Solution:</b> steady-state, with the Spalart&ndash;Allmaras turbulence model; velocity and turbulence residuals converged toward the 10<sup>&minus;6</sup> target in under 40 iterations.</li>
+    </ul>
+    <div class="gallery">
+      <figure style="flex:1.655">
+        <img src="../assets/airfoil/geometry.png" alt="Airfoil geometry modeled in Siemens NX">
+        <figcaption>Airfoil geometry.</figcaption>
+      </figure>
+      <figure style="flex:1.379">
+        <img src="../assets/airfoil/mesh.png" alt="Mesh of the wind-tunnel enclosure with a finer mesh on the airfoil">
+        <figcaption>Mesh: 15 mm enclosure, 5 mm on the airfoil.</figcaption>
+      </figure>
+    </div>
+    <div class="gallery" style="margin-top:16px">
+      <figure style="flex:1.559">
+        <img src="../assets/airfoil/boundary-conditions.png" alt="Wind-tunnel enclosure with inlet arrows on the left, outlet markers on the right and the airfoil in the center">
+        <figcaption>Inlet (arrows, left), outlet (squares, right) and the lift/drag report on the airfoil.</figcaption>
+      </figure>
+      <figure style="flex:1.333">
+        <img src="../assets/airfoil/residuals.png" alt="Residual history plot showing momentum, mass and turbulence residuals falling below their targets">
+        <figcaption>Residual history for the steady-state solution.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Analyzed drag force, velocity, pressure and streamlines to evaluate aerodynamic performance.</li>
+      <li><b>Total drag force: 703 mN (0.703 N)</b> at an <span class="nowrap">18&nbsp;m/s</span> inlet velocity.</li>
+      <li>Flow stagnates at the leading edge and accelerates over the upper surface to a peak of about <span class="nowrap">23.4&nbsp;m/s</span>. Static pressure ranges from +215&nbsp;Pa at the leading-edge stagnation point to &minus;231&nbsp;Pa over the upper surface, the pressure difference that produces lift.</li>
+    </ul>
+    <div class="gallery">
+      <figure style="flex:1.392">
+        <img src="../assets/airfoil/pressure.png" alt="Siemens NX static pressure contour with color-scale key in MPa around a cambered airfoil">
+        <figcaption>Static pressure contour (scale in MPa): +215&nbsp;Pa at the leading-edge stagnation point, &minus;231&nbsp;Pa over the upper surface.</figcaption>
+      </figure>
+      <figure style="flex:1.481">
+        <img src="../assets/airfoil/streamlines.png" alt="Streamlines passing over the airfoil inside the wind-tunnel enclosure">
+        <figcaption>Streamlines over the airfoil.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Project navigation">
+    <a href="lamp-head-fan-attachment.html">← Fan-Cooled Lamp Head Attachment</a>
+    <a href="translation-stage.html">Next: Two-Axis Translation Stage →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="mailto:amarley@u.rochester.edu">amarley@u.rochester.edu</a> · <a href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

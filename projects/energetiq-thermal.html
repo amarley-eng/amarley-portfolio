@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water-Cooled Next-Gen Lamp Head: CFD Thermal Design | Aidan Marley</title>
+  <meta name="description" content="R&amp;D internship at Energetiq Technology: CFD thermal design of a water-cooled next-gen LDLS lamp head, from a validated model through design iterations to a recommendation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Aidan Marley</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#background">Education &amp; Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-btn primary" href="../assets/Aidan_Marley_Resume.pdf">Resume</a>
+      <a class="nav-btn" href="mailto:amarley@u.rochester.edu">Email</a>
+      <a class="nav-btn" href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+
+  <!-- Content is drawn from the internship presentation with all product names, part numbers,
+       specifications, measured data and simulation results removed. Images are generic only. -->
+
+  <header class="proj-head">
+    <ul class="tags"><li>Thermal</li><li>Fluids</li><li>SolidWorks</li><li>SolidWorks Flow Simulation</li><li>CFD</li><li>DFM</li></ul>
+    <h1>Water-Cooled Next-Gen Lamp Head: CFD Thermal Design</h1>
+    <p class="one-line">As a Mechanical Engineering R&amp;D Intern at <a href="https://www.energetiq.com/">Energetiq Technology</a>, a subsidiary of Hamamatsu Photonics, I owned an R&amp;D project to design a water-cooled next-gen lamp head for an <a href="https://www.energetiq.com/ldls-laser-driven-light-source-products-energetiq">LDLS&reg;</a> system, from requirements through simulation and design iterations to a successful project management review.</p>
+  </header>
+
+  <dl class="glance">
+    <div><dt>Context</dt><dd>R&amp;D internship, Energetiq Technology, Wilmington, MA · Summer 2026</dd></div>
+    <div><dt>My role</dt><dd>Project owner: requirements, simulation model, design iterations, recommendation</dd></div>
+    <div><dt>Tools</dt><dd>SolidWorks Flow Simulation, SolidWorks</dd></div>
+    <div><dt>Result</dt><dd>Recommended design met the surface-temperature requirement in every simulated operating condition, improving thermal management over the fan-cooled baseline with the simplest manufacturing; expected to improve laser stability</dd></div>
+  </dl>
+
+  <div class="callout"><p>Product details, specifications, data, results and project images are left out to protect Energetiq Technology's proprietary information. I'm happy to discuss the approach in more depth.</p></div>
+
+  <div class="content">
+    <h2>Project Justification</h2>
+    <ul>
+      <li>Customers requested a water-cooled option for the lamp head of a <a href="https://www.energetiq.com/ldls-laser-driven-light-source-products-energetiq">laser-driven light source</a> system used in photolithography.</li>
+      <li>Water cooling reduces the risk of particle contamination compared to fan cooling.</li>
+      <li>Water cooling improves thermal stability and decreases reliance on environmental temperature conditions.</li>
+    </ul>
+
+    <h2>Project Requirements</h2>
+    <ul>
+      <li>Same or better thermal performance than the fan-cooled baseline.</li>
+      <li>Lamp-body surface temperature held below a specified maximum at full thermal load.</li>
+      <li>Compatibility with a specified water chiller.</li>
+      <li>Operation across specified ambient and chiller temperature ranges.</li>
+    </ul>
+
+    <h2>Simulation Setup</h2>
+    <ul>
+      <li>Built a heat-transfer model of the lamp head in SolidWorks Flow Simulation.</li>
+      <li>Simplified the SolidWorks model by removing internal circuitry and fasteners to reduce computational complexity and run time, added a base to simulate a table or machine mounting surface, and manually assigned material properties.</li>
+      <li>Modeled the lamp's plasma as a volumetric heat source between the electrodes, with heat generation distributed uniformly and black-body radiation assumed.</li>
+      <li>Defined flow boundary conditions from the chiller's flow specification, including coolant inlet velocity, outlet pressure and turbulence intensity to account for pipe bends and flow-rate variation.</li>
+      <li>Set convergence goals on maximum lamp-head surface temperature, average thermal-pad temperature and total energy balance, and refined computational meshes.</li>
+    </ul>
+
+    <h2>Model Validation</h2>
+    <ul>
+      <li>Modeled the existing fan-cooled configuration to establish a thermal performance baseline.</li>
+      <li>Validated the model against empirical data: measured ambient temperature with a thermistor and maximum lamp-head surface temperature with an IR thermometer.</li>
+      <li>Simulated and measured maximum temperatures agreed closely and occurred at the same location on the lamp head, confirming the model captured the heat-flow path.</li>
+    </ul>
+
+    <h2>Cold Plate Design Iterations</h2>
+    <ul>
+      <li>Designed seven cold-plate iterations in SolidWorks to address geometric constraints, varying channel layout and construction.</li>
+      <li>Executed parametric sweeps in SolidWorks Flow Simulation across three ambient temperatures, three chiller temperatures and two thermal loads.</li>
+      <li>Evaluated alternative methods for reducing thermal resistance and increasing cold-plate performance.</li>
+    </ul>
+
+    <h2>Re-Entrant Side Plate</h2>
+    <ul>
+      <li>Heat-flux plots showed heat concentrated through the thin side plate, creating a thermal bottleneck between the lamp head and the cold plate.</li>
+      <li>Designed a re-entrant side plate that fits flush with the lamp head, uses existing screw holes, and reduces thermal resistance.</li>
+    </ul>
+
+    <h2>Recommendation</h2>
+    <ul>
+      <li>Three iterations met the surface-temperature requirement at full thermal load across all simulated ambient and chiller conditions.</li>
+      <li>Recommended the iteration with comparable thermal performance and the simplest, lowest-cost manufacturing, meeting design for manufacturability (DFM) goals, with the re-entrant side plate as an additional improvement.</li>
+      <li>The improved thermal management over the fan-cooled baseline is expected to improve laser stability.</li>
+      <li>Presented the project, from justification and requirements through design iterations and simulation, at a project management review.</li>
+    </ul>
+
+    <h2>Additional Contributions</h2>
+    <ul>
+      <li><b><a href="lamp-head-fan-attachment.html">Fan-cooled lamp head attachment</a>:</b> I also owned this design, built to regulate surface temperature, minimize acoustic output, and address particle and stability concerns, using SolidWorks Flow Simulation to compare fan CFM ratings and custom intake air funnel geometries.</li>
+      <li>Created SolidWorks models and detail and exploded-view assembly drawings for engineering change orders (ECOs), and managed revisions in SolidWorks PDM.</li>
+    </ul>
+  </div>
+
+  <nav class="pager" aria-label="Project navigation">
+    <a href="../index.html#projects">← All projects</a>
+    <a href="wind-turbine-blades.html">Next: Bio-Inspired Wind Turbine Blade Design &amp; Testing →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="mailto:amarley@u.rochester.edu">amarley@u.rochester.edu</a> · <a href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

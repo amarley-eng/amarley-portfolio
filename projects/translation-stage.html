@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Closed-Loop Translation Stage | Aidan Marley</title>
+  <meta name="description" content="Closed-loop 2D translation stage using LVDT feedback, cam-driven servomotors, Arduino and MATLAB that drew the University of Rochester R logo from image coordinates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Aidan Marley</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#background">Education &amp; Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-btn primary" href="../assets/Aidan_Marley_Resume.pdf">Resume</a>
+      <a class="nav-btn" href="mailto:amarley@u.rochester.edu">Email</a>
+      <a class="nav-btn" href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+
+  <header class="proj-head">
+    <ul class="tags"><li>Electromechanical</li><li>Controls</li><li>Instrumentation</li><li>MATLAB</li><li>Arduino</li></ul>
+    <h1>Closed-Loop Translation Stage</h1>
+    <p class="one-line">Designed a closed-loop 2D motion control system that used LVDT position feedback and cam-driven servomotors to position a translation stage, then had it draw the University of Rochester &ldquo;R&rdquo; logo from image coordinates in dotted and continuous-line forms.</p>
+  </header>
+
+  <!-- A short clip of the stage drawing would make a strong hero here; save it as ../assets/translation-stage/drawing.mp4 and swap it in. -->
+  <figure class="hero-fig" style="aspect-ratio:auto">
+    <img src="../assets/translation-stage/card.jpg" style="aspect-ratio:16/9;height:auto" alt="Two-axis translation stage with LVDTs on the x and y axes and a marker drawing on paper taped to the stage">
+    <figcaption>Experimental setup: x- and y-axis LVDTs, cam-driven stage and marker, with the Arduino and power supply in the background.</figcaption>
+  </figure>
+
+  <dl class="glance">
+    <div><dt>Context</dt><dd>ME 240: Fundamentals of Instrumentation and Measurement, Fall 2025, University of Rochester</dd></div>
+    <div><dt>My role</dt><dd>Team of 4; wrote MATLAB control and drawing code; participated in hardware build and sensor calibration; authored the lab report</dd></div>
+    <div><dt>Tools</dt><dd>MATLAB, Arduino Uno, LVDTs (RDP DCTH2000A), 270° servomotors (DS3235SG), cam disks</dd></div>
+    <div><dt>Result</dt><dd>Drew a recognizable &ldquo;R&rdquo; in dotted and continuous-line forms, with height and width matching the scaled dimensions</dd></div>
+  </dl>
+
+  <div class="content">
+    <h2>Approach</h2>
+    <ul>
+      <li><b>System:</b> designed and implemented a closed-loop 2D motion control system. Two LVDTs measured stage position, two 270° servomotors drove the stage through cam disks, and an Arduino Uno controlled from MATLAB read the sensors and commanded the servos.</li>
+      <li><b>Calibration:</b> swept each servo to find the linear range of the cam response (102.6°&ndash;194.4° in x, 70.2°&ndash;164.7° in y), then calibrated each LVDT against a caliper-measured block over 0&ndash;43.6&nbsp;mm, giving linear voltage-displacement fits (D<sub>x</sub> = &minus;20.29&nbsp;V<sub>x</sub> + 70.41, D<sub>y</sub> = &minus;21.35&nbsp;V<sub>y</sub> + 91.32).</li>
+      <li><b>Control:</b> encoded the fits and degrees-per-millimeter relationships into custom MATLAB control functions that read the LVDTs before each move, compute the servo command, and clamp it to the calibrated range to stay in the linear region.</li>
+      <li><b>Drawing:</b> wrote a MATLAB program that converted the logo&rsquo;s vertices into scaled millimeter coordinates and drove the stage to reproduce it, first as dots to verify positions, then in continuous lines.</li>
+    </ul>
+    <div class="fig-row two">
+      <figure>
+        <img src="../assets/translation-stage/servo-range-x.png" alt="MATLAB plot of LVDT voltage versus servo position for the x-axis, with linear-region bounds marked">
+        <figcaption>Servo sweep (x-axis): the marked points bound the linear region used for control.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/translation-stage/lvdt-fit-x.png" alt="MATLAB plot of LVDT voltage versus stage displacement for the x-axis with a linear fit">
+        <figcaption>LVDT calibration (x-axis) with linear fit; the y-axis was calibrated the same way.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Both drawings clearly reproduced the logo, with straight horizontal and vertical edges and overall dimensions matching the scaled targets. Small, random offsets at corners pointed to servo precision rather than the code.</li>
+      <li>Diagonals were slightly wavy because both servos move at the same rate, limiting simultaneous moves to 45°. Scaling each axis&rsquo;s speed to the line angle would allow straight diagonals at any angle, as on a CNC machine or printer.</li>
+    </ul>
+    <div class="fig-row two">
+      <figure>
+        <img src="../assets/translation-stage/logo-vertices.png" alt="University of Rochester R logo with the vertices picked in MATLAB marked as red dots">
+        <figcaption>Target: University of Rochester logo, with vertices picked in MATLAB.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/translation-stage/final-r.jpg" alt="Continuous-line R drawn in blue marker on paper taped to the red stage">
+        <figcaption>Continuous-line pass.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Project navigation">
+    <a href="airfoil-drag-simulation.html">← Airfoil Drag Simulation</a>
+    <a href="../index.html#projects">All projects →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="mailto:amarley@u.rochester.edu">amarley@u.rochester.edu</a> · <a href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bio-Inspired Wind Turbine Blade Design &amp; Testing: Tubercle Aerodynamics | Aidan Marley</title>
+  <meta name="description" content="Biomimetic wind turbine blades: SolidWorks and NX design, NX CFD and FEA, 3D printing and wind tunnel testing. Tubercles raised power output 30% near cut-in.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Aidan Marley</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#background">Education &amp; Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-btn primary" href="../assets/Aidan_Marley_Resume.pdf">Resume</a>
+      <a class="nav-btn" href="mailto:amarley@u.rochester.edu">Email</a>
+      <a class="nav-btn" href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+
+  <header class="proj-head">
+    <ul class="tags"><li>Aerodynamics</li><li>SolidWorks</li><li>MATLAB</li><li>Siemens NX</li><li>FEA</li><li>CFD</li><li>Wind tunnel testing</li></ul>
+    <h1>Bio-Inspired Wind Turbine Blade Design &amp; Testing: Tubercle Aerodynamics</h1>
+    <p class="one-line">Designed, simulated, 3D-printed and wind-tunnel tested whale-inspired leading-edge tubercle blades, increasing turbine power output by 30% over control blades at low Reynolds numbers near cut-in speed (target: +5%); awarded Best Fluids Design Project, Mechanics Laboratory (ME 241).</p>
+  </header>
+
+  <!-- Exploded CAD assembly video. Save the file at the path below (MP4, H.264, ideally under ~10 MB). -->
+  <figure class="hero-fig" style="aspect-ratio:auto">
+    <video src="../assets/wind-turbine/exploded-assembly.mp4" controls autoplay muted loop playsinline preload="metadata" style="width:100%;border-radius:6px" aria-label="Exploded CAD view of the full turbine assembly" data-ph="Video: exploded CAD assembly (SolidWorks)"></video>
+    <figcaption><b>Exploded CAD assembly</b> of the tubercle-blade turbine: blades, hub, nacelle and 80/20 mounting system.</figcaption>
+  </figure>
+
+  <dl class="glance">
+    <div><dt>Context</dt><dd>ME 241: Mechanics Lab, Spring 2026, University of Rochester</dd></div>
+    <div><dt>My role</dt><dd>Team of 5; owned blade design: generated NACA 63-215 tubercle geometry in VBA and MATLAB; designed and modeled control and tubercle blade sets in SolidWorks, then sliced and 3D-printed them; built the turbine assembly; ran NX FEA and CFD; co-developed the test protocol and conducted wind tunnel testing with my team</dd></div>
+    <div><dt>Tools</dt><dd>SolidWorks, VBA, MATLAB, Siemens NX (FEA, CFD), FDM and SLA 3D printing, Arduino, wind tunnel</dd></div>
+    <div><dt>Result</dt><dd>+30% power output over control blades near cut-in speed (target: +5%); Best Fluids Design Project, ME 241</dd></div>
+  </dl>
+
+  <div class="content">
+    <h2>Background</h2>
+    <ul>
+      <li>Hydrodynamic tubercles on humpback fins increase performance by generating streamwise counter-rotational vortex pairs that energize the boundary layer, delaying flow separation and maintaining lift at higher angles of attack while reducing pressure drag associated with stall.</li>
+      <li>Tubercles have been found to increase lift in humpback whale pectoral fins by 10–15%.</li>
+      <li>Tubercle technology for wind turbines has been commercialized, but its effect near cut-in speed, where a turbine begins producing power, is less explored.</li>
+      <li>Residential wind turbines routinely underperform at low wind speeds, resulting in significant energy losses. Closing that performance gap could increase small wind turbine uptake by households and local grids.</li>
+      <li>Hypothesis: leading-edge tubercles increase power output near cut-in speed by at least 5%.</li>
+    </ul>
+
+    <h2>Design and Modeling</h2>
+    <ul>
+      <li>Modeled the control blade from a NACA 63-215 airfoil at 10 spanwise sections, lofted in SolidWorks, with a 1.82% shim added for manufacturability.</li>
+      <li>Wrote a VBA macro to export 100 leading-edge points to CSV, then applied sinusoidal leading-edge offsets in MATLAB to generate the NACA 63-215 tubercle blade.</li>
+      <li>Interpolated chord length and twist angle as functions of radius in MATLAB, then built peak, neutral and trough cross-sections at 14% peak-to-peak amplitude and lofted them in SolidWorks.</li>
+      <li>Held tubercle blade surface area and volume within ±0.25% and ±0.146% of the control blade to ensure a controlled comparison.</li>
+    </ul>
+    <figure class="fig-wide" style="max-width:640px">
+      <img src="../assets/wind-turbine/control-sections.png" alt="Airfoil cross-sections arranged along the blade axis for lofting in SolidWorks">
+      <figcaption>Airfoil cross-sections arranged for lofting.</figcaption>
+    </figure>
+    <figure class="fig-wide" style="margin-top:16px">
+      <img src="../assets/wind-turbine/edge-points.png" alt="Control blade in SolidWorks with 100 exported points marked along its edges">
+      <figcaption>100 evenly spaced edge points exported by the VBA macro.</figcaption>
+    </figure>
+    <div class="fig-row two" style="margin-top:16px">
+      <figure>
+        <img src="../assets/wind-turbine/matlab-overlay.png" alt="MATLAB 3D plot of tubercle and control blade edge points overlaid">
+        <figcaption>MATLAB overlay of edge points: tubercle (blue) vs. control (red).</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/wind-turbine/chord-length.png" alt="MATLAB plot of chord length versus radial distance for the tubercle and control blades with 14% bounds">
+        <figcaption>Chord length vs. radial distance: tubercle (blue) vs. control (red), with 14% peak-to-peak amplitude bounds.</figcaption>
+      </figure>
+    </div>
+    <figure class="fig-wide">
+      <img src="../assets/wind-turbine/tubercle-blade.png" alt="SolidWorks model of the tubercle blade showing the sinusoidal leading edge">
+      <figcaption>Final tubercle blade model in SolidWorks.</figcaption>
+    </figure>
+
+    <h2>Simulation</h2>
+    <ul>
+      <li>Performed FEA and CFD simulations in Siemens NX to evaluate structural and aerodynamic performance, correlating results with test data.</li>
+    </ul>
+
+    <h2>Fabrication and Testing</h2>
+    <ul>
+      <li>Sliced and 3D-printed control and tubercle blade sets by FDM (Prusa MK4) and SLA (J35), with a tight-fit hub requiring no adhesive for clean blade swaps between runs.</li>
+      <li>Built the turbine assembly, designing the nacelle around the generator motor and mounting the turbine on an 80/20 rail system in the wind tunnel.</li>
+      <li>Ran global interference checks on the full assembly before printing, and confirmed structural integrity at tunnel speeds with centrifugal force calculations and tests.</li>
+      <li>Test rig instrumented with an Arduino measuring generator voltage through a voltage divider (2 × 620&nbsp;Ω, keeping output within the Arduino&rsquo;s 5&nbsp;V range), a retroreflective tachometer for RPM, and a U-tube manometer to verify tunnel velocity; processed data in MATLAB.</li>
+      <li>Co-developed the test protocol and conducted wind tunnel testing that verified the power increase.</li>
+      <li>Compared mean output between blade sets with 95% confidence intervals.</li>
+    </ul>
+    <div class="gallery narrow">
+      <figure style="flex:0.655">
+        <img src="../assets/wind-turbine/printed-blades.jpg" alt="Three 3D-printed tubercle blades and three control blades on a workbench">
+        <figcaption>3D-printed tubercle (left) and control (right) blade sets.</figcaption>
+      </figure>
+      <figure style="flex:1.012">
+        <img src="../assets/wind-turbine/arduino.jpg" alt="Arduino Uno R3 wired for generator voltage measurement">
+        <figcaption>Arduino Uno R3 for data collection.</figcaption>
+      </figure>
+    </div>
+    <div class="gallery narrow" style="margin-top:16px">
+      <figure style="flex:0.618">
+        <img src="../assets/wind-turbine/test-rig.jpg" alt="Turbine mounted on the 80/20 rail system inside the wind tunnel">
+        <figcaption>Turbine mounted on the 80/20 rail system in the wind tunnel.</figcaption>
+      </figure>
+      <figure style="flex:0.589">
+        <video src="../assets/wind-turbine/wind-tunnel.mp4" controls muted loop playsinline preload="metadata" style="width:100%;display:block" aria-label="Turbine running in the wind tunnel during testing" data-ph="Video: turbine running in the wind tunnel"></video>
+        <figcaption>Turbine running in the wind tunnel during testing.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Wind tunnel testing verified a <b>30%</b> increase in power output at low Reynolds numbers near cut-in speed, exceeding the 5% target.</li>
+      <li>Awarded Best Fluids Design Project, Mechanics Laboratory (ME 241).</li>
+    </ul>
+  </div>
+
+  <nav class="pager" aria-label="Project navigation">
+    <a href="energetiq-thermal.html">← Water-Cooled Next-Gen Lamp Head</a>
+    <a href="lamp-head-fan-attachment.html">Next: Fan-Cooled Lamp Head Attachment →</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="mailto:amarley@u.rochester.edu">amarley@u.rochester.edu</a> · <a href="https://www.linkedin.com/in/aidan-marley">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
